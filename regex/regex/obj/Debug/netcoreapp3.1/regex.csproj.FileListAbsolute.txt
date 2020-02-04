@@ -1,0 +1,12 @@
+C:\Users\KanDil\Documents\training\regex\regex\regex\bin\Debug\netcoreapp3.1\regex.exe
+C:\Users\KanDil\Documents\training\regex\regex\regex\bin\Debug\netcoreapp3.1\regex.deps.json
+C:\Users\KanDil\Documents\training\regex\regex\regex\bin\Debug\netcoreapp3.1\regex.runtimeconfig.json
+C:\Users\KanDil\Documents\training\regex\regex\regex\bin\Debug\netcoreapp3.1\regex.runtimeconfig.dev.json
+C:\Users\KanDil\Documents\training\regex\regex\regex\bin\Debug\netcoreapp3.1\regex.dll
+C:\Users\KanDil\Documents\training\regex\regex\regex\bin\Debug\netcoreapp3.1\regex.pdb
+C:\Users\KanDil\Documents\training\regex\regex\regex\obj\Debug\netcoreapp3.1\regex.csprojAssemblyReference.cache
+C:\Users\KanDil\Documents\training\regex\regex\regex\obj\Debug\netcoreapp3.1\regex.AssemblyInfoInputs.cache
+C:\Users\KanDil\Documents\training\regex\regex\regex\obj\Debug\netcoreapp3.1\regex.AssemblyInfo.cs
+C:\Users\KanDil\Documents\training\regex\regex\regex\obj\Debug\netcoreapp3.1\regex.dll
+C:\Users\KanDil\Documents\training\regex\regex\regex\obj\Debug\netcoreapp3.1\regex.pdb
+C:\Users\KanDil\Documents\training\regex\regex\regex\bin\Debug\netcoreapp3.1\sample.txt
