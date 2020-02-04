@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.IO;
 using System.Text.RegularExpressions;
 using static System.Text.RegularExpressions.Regex;
@@ -10,50 +11,47 @@ namespace regex
     {
         static void Main(string[] args)
         {
-            
             var readFile = ReadFile("sample.txt");
-            EmailCount(readFile);
-            
+            var matches = EmailCount(readFile);
+            EmailDictionary(matches);
         }
+        
         private static string ReadFile(string path)
         {
             var readText = File.ReadAllText(path);
             return readText;
         }
 
-        private static void EmailCount(string readText)
+        private static MatchCollection EmailCount(string readText)
         {
-            /*
-            int counter = 0;
-            */
-
-            MatchCollection matches = Regex.Matches(readText, @"@\w*\.+\w*");
-           
+            MatchCollection matches = Regex.Matches(readText, @"@\w+\.\w+\.\w+|@\w+\.\w+");
             
-
-            foreach (var match in matches)
-            {
-                Console.WriteLine(match);
-            }
-            
-            /*for (int i = 0; i < readText.Length - 13; i++)
-            {
-                if (readText.(i, 13) == "@softwire.com")
-                {
-                    counter++;
-                }
-            }*/
-            
+            return matches;
         }
 
-        private static void EmailDictionary()
-        {
-            Dictionary<string, int> emailDictionary = new Dictionary<string, int>
-            {
-                
-            };
+        private static void EmailDictionary(MatchCollection matches)
 
-           // emailDictionary.ContainsKey();
+        {
+            Dictionary<string, int> emailDictionary = new Dictionary<string, int>();
+    
+            foreach (Match domain in matches)
+            {
+
+                if (emailDictionary.ContainsKey(domain.ToString()))
+                {
+                    emailDictionary[domain.ToString()]++;
+                }
+                else
+                {
+                    emailDictionary.Add(domain.ToString(), 1);
+                }
+            }
+
+            foreach (var (key, value) in emailDictionary)
+            {
+                Console.WriteLine($"domain: {key}, count: {value}");
+            }
+            
         }
     }
 }
