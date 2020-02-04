@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using static System.Text.RegularExpressions.Regex;
@@ -26,12 +27,14 @@ namespace regex
             int counter = 0;
             */
 
-            MatchCollection matches = Regex.Matches(readText, @"@softwire.com");
-            Console.WriteLine(matches.Count);
+            MatchCollection matches = Regex.Matches(readText, @"@\w*\.+\w*");
+           
+            
 
-            /*foreach (var match in matches)
+            foreach (var match in matches)
             {
-            }*/
+                Console.WriteLine(match);
+            }
             
             /*for (int i = 0; i < readText.Length - 13; i++)
             {
@@ -41,6 +44,16 @@ namespace regex
                 }
             }*/
             
+        }
+
+        private static void EmailDictionary()
+        {
+            Dictionary<string, int> emailDictionary = new Dictionary<string, int>
+            {
+                
+            };
+
+           // emailDictionary.ContainsKey();
         }
     }
 }
