@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
+using static System.Text.RegularExpressions.Regex;
 
 namespace regex
 {
@@ -8,33 +10,36 @@ namespace regex
         static void Main(string[] args)
         {
             
-            
-            string readFile = ReadFile("sample.txt");
+            var readFile = ReadFile("sample.txt");
             EmailCount(readFile);
-
-           
+            
         }
-        public static string ReadFile(string path)
+        private static string ReadFile(string path)
         {
-            string readText = File.ReadAllText(path);
+            var readText = File.ReadAllText(path);
             return readText;
         }
 
-        public static void EmailCount(string readText)
+        private static void EmailCount(string readText)
         {
+            /*
             int counter = 0;
-            
-            for (int i = 0; i < readText.Length - 13; i++)
+            */
+
+            MatchCollection matches = Regex.Matches(readText, @"@softwire.com");
+            Console.WriteLine(matches.Count);
+
+            /*foreach (var match in matches)
             {
-                if (readText.Substring(i, 13) == "@softwire.com")
+            }*/
+            
+            /*for (int i = 0; i < readText.Length - 13; i++)
+            {
+                if (readText.(i, 13) == "@softwire.com")
                 {
                     counter++;
                 }
-            }
-            Console.Write(counter);
-            
-            
-
+            }*/
             
         }
     }
