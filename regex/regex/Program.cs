@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using static System.Text.RegularExpressions.Regex;
 
@@ -13,7 +14,8 @@ namespace regex
         {
             var readFile = ReadFile("sample.txt");
             var matches = EmailCount(readFile);
-            EmailDictionary(matches);
+            //EmailDictionary(matches);
+            TopTenDomains(EmailDictionary(matches));
         }
         
         private static string ReadFile(string path)
@@ -29,7 +31,7 @@ namespace regex
             return matches;
         }
 
-        private static void EmailDictionary(MatchCollection matches)
+        private static Dictionary<string, int> EmailDictionary(MatchCollection matches)
 
         {
             Dictionary<string, int> emailDictionary = new Dictionary<string, int>();
@@ -47,11 +49,23 @@ namespace regex
                 }
             }
 
-            foreach (var (key, value) in emailDictionary)
+            /*foreach (var (key, value) in emailDictionary)
             {
                 Console.WriteLine($"domain: {key}, count: {value}");
-            }
+            }*/
+            return emailDictionary;
+
+        }
+
+        private static void TopTenDomains(Dictionary<string, int> dictionary)
+        {
+            var topTen = dictionary.OrderByDescending(x => x.Value);
             
+                for (int i =0; i < 10; i++) 
+                {
+                    Console.WriteLine(topTen.: {key}, count: {value};
+                    
+                }
         }
     }
 }
